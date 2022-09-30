@@ -31,7 +31,7 @@ impl Component for Home {
                 id: 2,
                 name: "Banana".to_string(),
                 description: "An old banana leaf was once young and green".to_string(),
-                image: "/products/banana.png".to_string(),
+                image: "/products/apple.png".to_string(),
                 price: 7.99,
             },
         ];
