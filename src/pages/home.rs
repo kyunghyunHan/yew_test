@@ -11,7 +11,6 @@ struct State {
     products: Vec<Product>,
 }
 
-// pub struct Home {}
 pub struct Home {
     state: State,
 }
@@ -37,7 +36,6 @@ impl Component for Home {
             },
         ];
 
-        // Self {}
         Self {
             state: State { products },
         }
@@ -67,6 +65,5 @@ impl Component for Home {
             })
             .collect();
         html! { <span>{products}</span> }
-        html! { <span>{"Home!"}</span> }
     }
 }
