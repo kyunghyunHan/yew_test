@@ -249,3 +249,49 @@ pub fn run_app() {
 - React에서의 view는 render,html!은 JSX
 
 ## 장바구니 기능
+
+## 데이터 가져오기
+
+```json
+[
+  {
+    "id": 1,
+    "name": "Apple",
+    "description": "An apple a day keeps the doctor away",
+    "image": "/products/apple.png",
+    "price": 3.65
+  },
+  {
+    "id": 2,
+    "name": "Banana",
+    "description": "An old banana leaf was once young and green",
+    "image": "/products/banana.png",
+    "price": 7.99
+  }
+]
+```
+
+```rs
+[package]
+  name = "rustmart"
+  version = "0.1.0"
+  authors = ["sheshbabu <sheshbabu@gmail.com>"]
+  edition = "2018"
+
+  [lib]
+  crate-type = ["cdylib", "rlib"]
+
+  [dependencies]
+  yew = "0.17"
+  wasm-bindgen = "0.2"
+  anyhow = "1.0.32"
+  serde = { version = "1.0", features = ["derive"] }
+```
+
+- create메서드에서 빈 배열로 하드코딩 되어 있었던 상품리스트 교체
+- Msg::GetProducts메세지를 보내 update에서 api모듈에 위칲한 get_products메서드 호출 반환된 FetchTask는 task에 저장
+- 요청이 성공하면 Msg::GetProductsSuccess메세지가 상품 리스트와 함께 호출되며, 실패할 경우 에러와 함께 Msg::getProductsError가 호출
+- 두 메세지는 products와 get_products_error 필드를 각각 설정
+- 요청이 완료된 후 get_products_loaded 상태 또한 true로 변경
+
+## 재사용 컴포넌트 분리
