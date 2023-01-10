@@ -127,3 +127,125 @@ cargo make serve
 2.State의 변경
 3.AppState의 변경
 ```
+
+## Homepage
+
+```rs
+// src/pages/home.rs
+use yew::prelude::*;
+struct Product {
+    id: i32,
+    name: String,
+    description: String,
+    image: String,
+    price: f64,
+}
+
+struct State {
+    products: Vec<Product>,
+}
+
+pub struct Home {
+    state: State,
+}
+impl Component for Home {
+    type Message = ();
+    type Properties = ();
+
+    fn create(_: Self::Properties, _: ComponentLink<Self>) -> Self {
+        let products: Vec<Product> = vec![
+            Product {
+                id: 1,
+                name: "아롱".to_string(),
+                description: "An apple a day keeps the doctor away".to_string(),
+                image: "/products/고양이1.jpeg".to_string(),
+                price: 3.65,
+            },
+            Product {
+                id: 2,
+                name: "호롱".to_string(),
+                description: "An old banana leaf was once young and green".to_string(),
+                image: "/products/고양이2.jpeg".to_string(),
+                price: 7.99,
+            },
+        ];
+        Self {
+            state: State { products },
+        }
+    }
+
+    fn update(&mut self, _: Self::Message) -> ShouldRender {
+        true
+    }
+
+    fn change(&mut self, _: Self::Properties) -> ShouldRender {
+        true
+    }
+
+    fn view(&self) -> Html {
+        let products: Vec<Html> = self
+            .state
+            .products
+            .iter()
+            .map(|product: &Product| {
+                html! {
+                  <div>
+                    <img src={&product.image}/>
+                    <div>{&product.name}</div>
+                    <div>{"$"}{&product.price}</div>
+                  </div>
+                }
+            })
+            .collect();
+
+        html! { <span>{products}</span> }
+    }
+}
+
+```
+
+```rs
+//lib
+mod pages;
+
+use pages::Home;
+use wasm_bindgen::prelude::*;
+use yew::prelude::*;
+
+struct Hello {}
+
+impl Component for Hello {
+    type Message = ();
+    type Properties = ();
+
+    fn create(_: Self::Properties, _: ComponentLink<Self>) -> Self {
+        Self {}
+    }
+
+    fn update(&mut self, _: Self::Message) -> ShouldRender {
+        true
+    }
+
+    fn change(&mut self, _: Self::Properties) -> ShouldRender {
+        true
+    }
+
+    fn view(&self) -> Html {
+        html! { <span>{"Hello World!"}</span> }
+    }
+}
+
+#[wasm_bindgen(start)]
+pub fn run_app() {
+    App::<Hello>::new().mount_to_body();
+    App::<Home>::new().mount_to_body();
+}
+
+```
+
+- create생명주기 메서드는 컴포넌트가 생성될떄 호출되며 여기서 초기 상태를 설정
+- view메서드의 생명주기 메서드는 컴포넌트가 렌더된 뒤 발생한다.
+- 위코드에서는 상품카드를 생성하기 위해 products를 반복햇다
+- React에서의 view는 render,html!은 JSX
+
+## 장바구니 기능
