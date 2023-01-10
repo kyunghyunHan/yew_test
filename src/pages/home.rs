@@ -1,4 +1,3 @@
-// src/pages/home.rs
 use yew::prelude::*;
 struct Product {
     id: i32,
@@ -7,6 +6,7 @@ struct Product {
     image: String,
     price: f64,
 }
+
 struct State {
     products: Vec<Product>,
 }
@@ -24,18 +24,17 @@ impl Component for Home {
                 id: 1,
                 name: "Apple".to_string(),
                 description: "An apple a day keeps the doctor away".to_string(),
-                image: "/products/apple.png".to_string(),
+                image: "/products/고양이1.jpeg".to_string(),
                 price: 3.65,
             },
             Product {
                 id: 2,
                 name: "Banana".to_string(),
                 description: "An old banana leaf was once young and green".to_string(),
-                image: "/products/apple.png".to_string(),
+                image: "/products/고양이2.jpeg".to_string(),
                 price: 7.99,
             },
         ];
-
         Self {
             state: State { products },
         }
@@ -64,6 +63,7 @@ impl Component for Home {
                 }
             })
             .collect();
+
         html! { <span>{products}</span> }
     }
 }

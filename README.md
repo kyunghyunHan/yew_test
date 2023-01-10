@@ -104,6 +104,8 @@ pub fn run_app() {
 }
 ```
 
+- hello라는 컴포넌트 생성해 Hello world을 생성하는 작업을 한다.
+
 ## 실행
 
 ```
@@ -111,3 +113,17 @@ cargo make serve
 ```
 
 - http://localhost:3000
+
+## 컴포넌트
+
+- props:해단 컴포넌트에서 자식 컴포넌트로 데이터나 콜백을 전달
+- state:컴포넌트의 로컬 상태를 조작
+- AppState:전역 상태를 조작
+
+- 리렌더링
+
+```
+1.props의 변경
+2.State의 변경
+3.AppState의 변경
+```
