@@ -1,9 +1,16 @@
+/*
+App
+
+
+
+*/
+
 use crate::components::Navbar;
 use crate::pages::{Home, ProductDetail};
 use crate::route::Route;
 use crate::types::{CartProduct, Product};
 use yew::prelude::*;
-use yew_router::{prelude::*, switch};
+use yew_router::prelude::*;
 struct State {
     cart_products: Vec<CartProduct>,
 }

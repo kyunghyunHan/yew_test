@@ -1,3 +1,9 @@
+/*
+Home
+
+
+*/
+
 use crate::api;
 use crate::components::ProductCard;
 use crate::types::{CartProduct, Product};

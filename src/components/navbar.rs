@@ -1,6 +1,11 @@
+/*
+Navbar
+
+
+*/
+
 use crate::types::CartProduct;
 use yew::prelude::*;
-
 pub struct Navbar {
     props: Props,
 }
@@ -33,7 +38,7 @@ impl Component for Navbar {
 
         html! {
             <div class="navbar">
-                <div class="navbar_title">{"AraMart"}</div>
+                <div class="navbar_title">{"캣타워를 타는 아라"}</div>
               <div class="navbar_cart_value">{format!("${:.2}", cart_value)}</div>
             </div>
         }

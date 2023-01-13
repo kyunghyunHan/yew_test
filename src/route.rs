@@ -1,4 +1,9 @@
-// src/route.rs
+/*
+route
+
+
+*/
+
 use yew_router::prelude::*;
 
 #[derive(Switch, Debug, Clone)]

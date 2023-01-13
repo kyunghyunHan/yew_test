@@ -1,4 +1,8 @@
-// src/components/product_card.rs
+/*
+Product_card
+
+
+*/
 use crate::components::AtcButton;
 use crate::route::Route;
 use crate::types::Product;

@@ -1,4 +1,8 @@
-// src/pages/product_detail.rs
+/*
+Product_d
+
+
+*/
 use crate::api;
 use crate::components::AtcButton;
 use crate::types::Product;
