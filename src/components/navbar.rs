@@ -33,7 +33,7 @@ impl Component for Navbar {
 
         html! {
             <div class="navbar">
-                <div class="navbar_title">{"RustMart"}</div>
+                <div class="navbar_title">{"AraMart"}</div>
               <div class="navbar_cart_value">{format!("${:.2}", cart_value)}</div>
             </div>
         }
